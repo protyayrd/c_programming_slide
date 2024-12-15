@@ -25,6 +25,7 @@ import SumOf_ipowi from "./SumOf_ipowi.jsx";
 import SumOf_1Fraci2 from "./SumOf_1Fraci2.jsx";
 import ProductOf5Numbers from "./ProductOf5Numbers.jsx";
 import ControlFlowLoopDetails from "./ControlFlowLoopDetails.jsx";
+import PrintBondipathshala5Times from "./PrintBondipathshala5Times.jsx";
 
 const commonStyles = {
   background: "bg-gray-900", // Main background
@@ -44,10 +45,14 @@ const commonStyles = {
 
 const slides = [
   {
+    indexTitle: "Cover Page",
     component: CoverPage,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
+    indexTitle: "Loops Intro",
     component: LoopsIntroPage,
+    gradient: "from-blue-900 to-blue-800",
   },
   // {
   //   title: "Introduction to Loops",
@@ -67,7 +72,7 @@ const slides = [
   //   title: "Fundamental Elements of Loops - I",
   //   content: [
   //     "__**^^Initialization^^:-**__",
-  //     "--ইনিশিয়ালাইজেশন হল লুপের যাত্রার শুরুর বিন্��ু।--",
+  //     "--ইনিশিয়ালাইজেশন হল লুপের যাত্রার শুরুর বিন্ু।--",
   //     "--লুপ নিয়ন্ত্রণ এর জন্য এক বা একাধিক Variable তৈরি বা প্রাথমিক মান স্থাপন করে।--",
   //     "--লুপ শুরু হওয়ার আগে শুধুমাত্র একবার ঘটে।--",
   //     "Example: int i = 0;",
@@ -100,9 +105,10 @@ const slides = [
   // },
   {
     title: "Marathon Race Animation",
+    indexTitle: "Marathon Race Animation",
     component: MarathonRunnerAnimation,
-    gradient: "from-purple-500 to-purple-700",
     icon: Terminal,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
     title: "১ থেকে ৫ পর্যন্ত সংখ্যা গুলো প্রিন্ট করার জন্য একটি C Program লিখ।",
@@ -117,8 +123,8 @@ const slides = [
       { text: "return 0;", color: "text-blue-300" },
       { text: "}", color: "text-blue-300" },
     ],
-    gradient: "from-green-500 to-green-700",
     icon: Code,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
     title: "১ থেকে ৫ পর্যন্ত সংখ্যা গুলো প্রিন্ট করার জন্য একটি C Program লিখ।",
@@ -134,113 +140,154 @@ const slides = [
       { text: "return 0;", color: "text-blue-300" },
       { text: "}", color: "text-blue-300" },
     ],
-    gradient: "from-green-500 to-green-700",
     icon: Code,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
+    indexTitle: "Loop Elements",
     component: LoopElements,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
+    indexTitle: "Loop Flow",
     component: LoopFlow,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
+    indexTitle: "Types of Loops",
     component: TypesOfLoops,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
+    indexTitle: "For Loop Details",
     component: ForLoopDetails,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
+    indexTitle: "For Loop Visualizer",
     component: ForLoopVisualizer,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
+    indexTitle: "While Loop Details",
     component: WhileLoopDetails,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
+    indexTitle: "While Loop Visualizer",
     component: WhileLoopVisualizer,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
+    indexTitle: "Do-While Loop Details",
     component: DoWhileLoopDetails,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
+    indexTitle: "'Do-While Loop Visualizer",
     component: DoWhileLoopVisualizer,
+    gradient: "from-blue-900 to-blue-800",
+  },
+  {
+    title: "'Bondipathshala' word টি 5 বার প্রিন্ট করো।",
+    indexTitle: "'Bondipathshala' word টি 5 বার প্রিন্ট করো।",
+    component: PrintBondipathshala5Times,
+    icon: Terminal,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
     title: "1 থেকে 5 পর্যন্ত সংখ্যা গুলো প্রিন্ট করো।",
+    indexTitle: "1 থেকে 5 পর্যন্ত সংখ্যা গুলো প্রিন্ট করো।",
     component: Print5Numbers,
-    gradient: "from-purple-500 to-purple-700",
     icon: Terminal,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
     title: "1 থেকে 10 পর্যন্ত বিজোড় সংখ্যা গুলো প্রিন্ট করো।",
+    indexTitle: "1 থেকে 10 পর্যন্ত বিজোড় সংখ্যা গুলো প্রিন্ট করো।",
     component: PrintOddNumbers,
-    gradient: "from-purple-500 to-purple-700",
     icon: Terminal,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
     title: "1 থেকে 10 পর্যন্ত জোড় সংখ্যা গুলো প্রিন্ট করো।",
+    indexTitle: "1 থেকে 10 পর্যন্ত জোড় সংখ্যা গুলো প্রিন্ট করো।",
     component: PrintEvenNumbers,
-    gradient: "from-purple-500 to-purple-700",
     icon: Terminal,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
     title: "1, 4, 7, ..., 25 সিরিজটি প্রিন্ট করো।",
+    indexTitle: "1, 4, 7, ..., 25 সিরিজটি প্রিন্ট করো।",
     component: SeriesPrint,
-    gradient: "from-purple-500 to-purple-700",
     icon: Terminal,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
     title: "100, 90, 80, ..., 0 সিরিজটি প্রিন্ট করো।",
+    indexTitle: "100, 90, 80, ..., 0 সিরিজটি প্রিন্ট করো।",
     component: SeriesPrintReverse,
-    gradient: "from-purple-500 to-purple-700",
     icon: Terminal,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
     title: "1 থেকে 5 পর্যন্ত সংখ্যা গুলোর যোগফল নির্নয় করো।",
+    indexTitle: "1 থেকে 5 পর্যন্ত সংখ্যা গুলোর যোগফল নির্নয় করো।",
     component: SumOf5Numbers,
-    gradient: "from-purple-500 to-purple-700",
     icon: Terminal,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
     title: "১ থেকে ৫ পর্যন্ত সংখ্যা গুলোর যোগফল নির্নয় করো।",
+    indexTitle: "১ থেকে ৫ পর্যন্ত সংখ্যা গুলোর যোগফল নির্নয় করো।",
     component: SumCalculation,
-    gradient: "from-purple-500 to-purple-700",
     icon: Terminal,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
+    indexTitle: 'For Loop Sum ForLoopVisualizer',
     component: ForLoopSumVisualizer,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
     title: "1 থেকে 5 পর্যন্ত সংখ্যা গুলোর গুনণফল নির্নয় করো।",
+    indexTitle: "1 থেকে 5 পর্যন্ত সংখ্যা গুলোর গুনণফল নির্নয় করো।",
     component: ProductOf5Numbers,
-    gradient: "from-purple-500 to-purple-700",
     icon: Terminal,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
     title: "1^2^ + 2^2^ + 3^2^ + 4^2^ + 5^2^ ধারার যোগফল নির্নয় করো।",
+    indexTitle: "1^2 + 2^2 + 3^2 + 4^2 + 5^2 ধারার যোগফল নির্নয় করো।",
     component: SumOf_iXi,
-    gradient: "from-purple-500 to-purple-700",
     icon: Terminal,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
     title: "1^1^ + 2^2^ + 3^3^ + 4^4^ + 5^5^ ধারার যোগফল নির্নয় করো।",
+    indexTitle: "1^1 + 2^2 + 3^3 + 4^4 + 5^5 ধারার যোগফল নির্নয় করো।",
     component: SumOf_ipowi,
-    gradient: "from-purple-500 to-purple-700",
     icon: Terminal,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
     title: "1X3 + 2X4 + 3X5 + 4X6 + 5X7 ধারার যোগফল নির্নয় করো।",
+    indexTitle: "1X3 + 2X4 + 3X5 + 4X6 + 5X7 ধারার যোগফল নির্নয় করো।",
     component: SumOf_iXi2,
-    gradient: "from-purple-500 to-purple-700",
     icon: Terminal,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
     title: "{1/1^2^} + {1/2^2^}  + {1/3^2^} + {1/4^2^} + {1/5^2^} ধারার যোগফল নির্নয় করো।",
+    indexTitle: "1/1^2 + 1/2^2 + 1/3^2 + 1/4^2 + 1/5^2 ধারার যোগফল নির্নয় করো।",
     component: SumOf_1Fraci2,
-    gradient: "from-purple-500 to-purple-700",
     icon: Terminal,
+    gradient: "from-blue-900 to-blue-800",
   },
   {
+    indexTitle: 'IF Else in Loops',
     component: ControlFlowLoopDetails,
+    gradient: "from-blue-900 to-blue-800",
   },
 ];
 

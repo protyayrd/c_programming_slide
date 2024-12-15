@@ -197,7 +197,7 @@ const CProgrammingLoops = () => {
 
   return (
     <div
-      className="relative bg-gray-900 w-full h-screen flex flex-col items-center justify-center text-white"
+      className="relative bg-gradient-to-br from-gray-900 to-gray-900 w-full h-screen flex flex-col items-center justify-center text-white"
       style={{
         aspectRatio: '16 / 9',
         maxHeight: '100vh',
