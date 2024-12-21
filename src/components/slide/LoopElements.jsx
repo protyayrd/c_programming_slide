@@ -16,7 +16,7 @@ const LoopElements = () => {
                 'Initialization শুধুমাত্র একবারই করা হয়।',
                 'সাধারণত কাউন্টার বা সিরিজের প্রথম মান দেওয়া হয়।',
             ],
-            codeExample: 'int i = 0;  // একটি লাইনের ইনিশিয়ালাইজেশন\n// অথবা, int i; \n i = 0;',
+            codeExample: 'int i = 0;  // একটি এক লাইনের ইনিশিয়ালাইজেশন\n// অথবা, int i; \n i = 0;',
             gradient: 'from-cyan-500 to-blue-500'
         },
         condition: {
@@ -78,24 +78,21 @@ const LoopElements = () => {
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 p-3 border-b border-gray-800 bg-gray-850">
                 {Object.keys(loopElements).map((element) => (
-                    <motion.button
+                    <button
                         key={element}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
                         onClick={() => setActiveElement(element)}
                         className={`
                             flex flex-col items-center justify-center 
                             py-3 rounded-xl transition-all duration-300 
                             text-base group relative overflow-hidden
                             ${activeElement === element
-                            ? 'bg-cyan-600/40 border-cyan-500/60 text-cyan-200 scale-105'
-                            : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
-                        } 
+                                ? 'bg-cyan-600/40 border-cyan-500/60 text-cyan-200'
+                                : 'bg-gray-800 text-gray-400 hover:bg-gray-700'
+                            } 
                             border-2 shadow-xl`}
                     >
                         {activeElement === element && (
-                            <motion.div
-                                layoutId="active-element-bg"
+                            <div
                                 className="absolute inset-0 bg-gradient-to-br opacity-20"
                                 style={{
                                     backgroundImage: `linear-gradient(${loopElements[element].gradient})`
@@ -106,7 +103,7 @@ const LoopElements = () => {
                         <span className="mt-1 text-xl font-bold relative z-10">
                             {loopElements[element].title}
                         </span>
-                    </motion.button>
+                    </button>
                 ))}
             </div>
 
