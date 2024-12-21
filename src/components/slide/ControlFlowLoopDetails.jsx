@@ -14,7 +14,8 @@ const ControlFlowLoopDetails = () => {
         },
         {
             description: "If Statement in For Loop",
-            code: "for (initialization; condition; update) {\n    if (another condition) {\n        // Code to execute if condition is true\n    }\n}",
+            code: "for (initialization; condition; update) {\n    if (condition) {\n        // Code to execute if condition is true\n    }\n}",
+            explanation: "If statement in loop:\n- Checks condition each iteration\n- Executes block only when condition is met\n- Allows selective processing"
         },
         {
             description: "Basic If-Else Statement Structure",
@@ -23,69 +24,63 @@ const ControlFlowLoopDetails = () => {
         },
         {
             description: "If-Else in For Loop",
-            code: "for (initialization; condition; update) {\n    if (another condition) {\n        // Code to execute if condition is true\n    } else {\n        // Code to execute if condition is false\n    }\n}",
+            code: "for (initialization; condition; update) {\n    if (condition) {\n        // Code to execute if condition is true\n    } else {\n        // Code to execute if condition is false\n    }\n}",
+            explanation: "If-else in loop:\n- Provides two paths each iteration\n- Executes one block per iteration\n- Handles binary conditions in loop"
         },
         {
             description: "If-Else Ladder Structure",
-            code: "if (condition1) {\n    // Code to execute if condition1 is true\n} else if (condition2) {\n    Code to execute if condition2 is true\n} else if (condition3) {\n    Code to execute if condition3 is true\n} else {\n    Code to execute if all condition is false\n}",
+            code: "if (condition1) {\n    // Code to execute if condition1 is true\n} else if (condition2) {\n    // Code to execute if condition2 is true\n} else if (condition3) {\n    // Code to execute if condition3 is true\n} else {\n    // Default code\n}",
             explanation: "If-else ladder allows multiple condition checks:\n- Checks conditions sequentially\n- Executes first matching condition block\n- Provides default fallback option"
         },
         {
-            description: "If-Else Ladder in For Loop",
-            code: "for (initialization; condition; update) {\n     if (condition1) {\n    // Code to execute if condition1 is true\n} else if (condition2) {\n    Code to execute if condition2 is true\n} else if (condition3) {\n    Code to execute if condition3 is true\n} else {\n    Code to execute if all condition is false\n}",
-        },
-        {
             description: "Continue Statement Structure",
-            code: "for (int i = 0; i < 10; i++) {\n    if (condition) {\n        continue;  // Skip remaining loop body\n    }\n    // Remaining code\n}",
+            code: "for (initialization; condition; update) {\n    if (condition) {\n        continue;  // Skip current iteration\n    }\n    // This code is skipped when continue executes\n}",
             explanation: "Continue statement:\n- Skips remaining code in current iteration\n- Moves to next loop iteration immediately\n- Useful for filtering or selective processing"
         },
         {
             description: "Continue in For Loop",
-            code: "for (int i = 0; i < 10; i++) {\n    if (i % 2 == 0) {\n        continue;  // Skip even numbers\n    }\n    // Process only odd numbers\n}",
-            explanation: "Continue within loop iteration:\n- Selectively skips specific iterations\n- Allows precise control over loop execution\n- Filters data during iteration"
+            code: "for (initialization; condition; update) {\n    if (condition) {\n        continue;  // Skip current iteration\n    }\n    // This code is skipped when continue executes\n}",
+            explanation: "Continue in practice:\n- Skips specific iterations based on condition\n- Maintains loop flow\n- Useful for filtering values"
         },
         {
             description: "Break Statement Structure",
-            code: "for (int i = 0; i < 10; i++) {\n    if (condition) {\n        break;  // Exit loop entirely\n    }\n    // Remaining code\n}",
-            explanation: "Break statement:\n- Immediately terminates loop\n- Exits loop regardless of original termination condition\n- Useful for early loop termination"
-        },
-        {
-            description: "Break in For Loop",
-            code: "for (int i = 0; i < 100; i++) {\n    if (i > 50) {\n        break;  // Stop at 50\n    }\n    // Process numbers until 50\n}",
-            explanation: "Break within loop iteration:\n- Provides early exit mechanism\n- Stops processing when specific condition met\n- Helps in searching or conditional termination"
+            code: "for (initialization; condition; update) {\n    if (condition) {\n        break;  // Exit loop immediately\n    }\n    // Code here won't run after break\n}",
+            explanation: "Break statement:\n- Immediately exits the loop\n- Skips all remaining iterations\n- Used for early termination"
         }
     ];
 
     const controlFlowExamples = [
         {
-            code: "#include <stdio.h>\n\nint main() {\n    int x = 10;\n    if (x > 5) {\n        printf(\"x is greater than 5\");\n    }\n    return 0;\n}"
+            description: "Basic If Statement Example",
+            code: "#include <stdio.h>\n\nint main() {\n    int x = 10;\n    \n    if (x > 5) {\n        printf(\"x is greater than 5\\n\");\n    }\n    \n    return 0;\n}"
         },
         {
-            code: "#include <stdio.h>\n\nint main() {\n    for (int i = 1; i <= 10; i++) {\n        if (i % 2 == 0) {\n            printf(\"%d, \", i);\n        }\n    }\n    return 0;\n}"
+            description: "If Statement in Loop Example",
+            code: "#include <stdio.h>\n\nint main() {\n    int i;\n    \n    for (i = 1; i <= 10; i++) {\n        if (i % 2 == 0) {\n            printf(\"%d is even\\n\", i);\n        }\n    }\n    \n    return 0;\n}"
         },
         {
-            code: "#include <stdio.h>\n\nint main() {\n    int x = 7;\n    if (x % 2 == 0) {\n        printf(\"Even\");\n    } else {\n        printf(\"Odd\");\n    }\n    return 0;\n}"
+            description: "Basic If-Else Example",
+            code: "#include <stdio.h>\n\nint main() {\n    int x = 7;\n    \n    if (x % 2 == 0) {\n        printf(\"%d is even\\n\", x);\n    } else {\n        printf(\"%d is odd\\n\", x);\n    }\n    \n    return 0;\n}"
         },
         {
-            code: "#include <stdio.h>\n\nint main() {\n    for (int i = 1; i <= 10; i++) {\n        if (i % 2 == 0) {\n            printf(\"Even: %d \", i);\n        } else {\n            printf(\"Odd: %d \", i);\n        }\n    }\n    return 0;\n}"
+            description: "If-Else in Loop Example",
+            code: "#include <stdio.h>\n\nint main() {\n    int i;\n    \n    for (i = 1; i <= 10; i++) {\n        if (i % 2 == 0) {\n            printf(\"%d is even\\n\", i);\n        } else {\n            printf(\"%d is odd\\n\", i);\n        }\n    }\n    \n    return 0;\n}"
         },
         {
-            code: "#include <stdio.h>\n\nint main() {\n    int x = 75;\n    if (x >= 90) {\n        printf(\"A Grade\");\n    } else if (x >= 80) {\n        printf(\"B Grade\");\n    } else if (x >= 70) {\n        printf(\"C Grade\");\n    } else {\n        printf(\"Fail\");\n    }\n    return 0;\n}"
+            description: "If-Else Ladder Example",
+            code: "#include <stdio.h>\n\nint main() {\n    int score = 75;\n    \n    if (score >= 90) {\n        printf(\"A Grade\\n\");\n    } else if (score >= 80) {\n        printf(\"B Grade\\n\");\n    } else if (score >= 70) {\n        printf(\"C Grade\\n\");\n    } else {\n        printf(\"Fail\\n\");\n    }\n    \n    return 0;\n}"
         },
         {
-            code: "#include <stdio.h>\n\nint main() {\n    for (int score = 60; score <= 100; score += 10) {\n        if (score >= 90) {\n            printf(\"%d: A Grade\\n\", score);\n        } else if (score >= 80) {\n            printf(\"%d: B Grade\\n\", score);\n        } else if (score >= 70) {\n            printf(\"%d: C Grade\\n\", score);\n        } else {\n            printf(\"%d: Fail\\n\", score);\n        }\n    }\n    return 0;\n}"
+            description: "If-Else Ladder in Loop Example",
+            code: "#include <stdio.h>\n\nint main() {\n    int score;\n    \n    for (score = 60; score <= 100; score += 10) {\n        if (score >= 90) {\n            printf(\"%d: A Grade\\n\", score);\n        } else if (score >= 80) {\n            printf(\"%d: B Grade\\n\", score);\n        } else if (score >= 70) {\n            printf(\"%d: C Grade\\n\", score);\n        } else {\n            printf(\"%d: Fail\\n\", score);\n        }\n    }\n    \n    return 0;\n}"
         },
         {
-            code: "#include <stdio.h>\n\nint main() {\n    for (int i = 0; i < 10; i++) {\n        if (i == 5) {\n            continue;\n        }\n        printf(\"%d \", i);\n    }\n    return 0;\n}"
+            description: "Continue Statement Example",
+            code: "#include <stdio.h>\n\nint main() {\n    int i;\n    \n    for (i = 1; i <= 5; i++) {\n        if (i == 5) {\n            continue;  // Skip printing 5\n        }\n        printf(\"%d\\n\", i);\n    }\n    \n    return 0;\n}"
         },
         {
-            code: "#include <stdio.h>\n\nint main() {\n    for (int i = 0; i < 10; i++) {\n        if (i % 2 == 0) {\n            continue;\n        }\n        printf(\"Odd: %d \", i);\n    }\n    return 0;\n}"
-        },
-        {
-            code: "#include <stdio.h>\n\nint main() {\n    for (int i = 0; i < 10; i++) {\n        if (i == 6) {\n            break;\n        }\n        printf(\"%d \", i);\n    }\n    return 0;\n}"
-        },
-        {
-            code: "#include <stdio.h>\n\nint main() {\n    for (int i = 0; i < 100; i++) {\n        if (i > 50) {\n            break;\n        }\n        printf(\"%d \", i);\n    }\n    return 0;\n}"
+            description: "Break Statement Example",
+            code: "#include <stdio.h>\n\nint main() {\n    int i;\n    \n    for (i = 1; i <= 10; i++) {\n        if (i == 6) {\n            break;  // Stop at 6\n        }\n        printf(\"%d\\n\", i);\n    }\n    \n    return 0;\n}"
         }
     ];
 
@@ -192,16 +187,27 @@ const ControlFlowLoopDetails = () => {
                             animate={{ scale: 1 }}
                             transition={{ duration: 0.3 }}
                             onClick={(e) => e.stopPropagation()}
+                            className="bg-gray-800 p-8 rounded-2xl max-w-4xl w-full"
                         >
-                            <h2 className="text-3xl text-cyan-300 mb-6 font-bold">
-                                {controlFlowExamples[currentStep].description}
-                            </h2>
-                            <pre className="bg-gray-700 p-6 rounded-xl text-4xl overflow-auto text-green-300">
-                                <code>
+                            <div className="mb-8">
+                                <h2 className="text-3xl text-cyan-300 font-bold mb-2">
+                                    {controlFlowExamples[currentStep].description}
+                                </h2>
+                                <div className="h-1 w-20 bg-cyan-500/50 rounded-full"></div>
+                            </div>
+                            <pre className="bg-gray-900/50 p-6 rounded-xl text-xl overflow-auto mb-6">
+                                <code className="text-green-400">
                                     {controlFlowExamples[currentStep].code}
                                 </code>
                             </pre>
-
+                            <div className="flex justify-end">
+                                <button
+                                    onClick={toggleExample}
+                                    className="bg-gray-700 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors text-lg flex items-center space-x-2"
+                                >
+                                    Close Example
+                                </button>
+                            </div>
                         </motion.div>
                     </motion.div>
                 )}

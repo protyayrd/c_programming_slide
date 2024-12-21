@@ -1,0 +1,95 @@
+/* Base responsive settings */
+:root {
+    /* Fluid typography formula: calc(min + (max - min) * ((100vw - min-viewport) / (max-viewport - min-viewport))) */
+    --fluid-typography: calc(16px + (24 - 16) * ((100vw - 320px) / (3840 - 320px)));
+    --container-padding: clamp(1rem, 5vw, 4rem);
+}
+
+/* Base responsive container */
+.container {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    box-sizing: border-box;
+}
+
+/* Fluid typography */
+body {
+    font-size: var(--fluid-typography);
+}
+
+/* Responsive grid system */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: clamp(1rem, 3vw, 2rem);
+}
+
+/* Responsive images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Responsive breakpoints */
+@media screen and (max-width: 320px) {
+
+    /* Small mobile devices */
+    :root {
+        --container-padding: 0.5rem;
+    }
+}
+
+@media screen and (min-width: 321px) and (max-width: 768px) {
+    /* Tablets and large phones */
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    /* Small laptops */
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+    /* Desktops */
+}
+
+@media screen and (min-width: 1441px) and (max-width: 2560px) {
+    /* Large screens */
+}
+
+@media screen and (min-width: 2561px) {
+
+    /* Extra large screens (Smart boards) */
+    :root {
+        --fluid-typography: calc(24px + (36 - 24) * ((100vw - 2560px) / (3840 - 2560px)));
+    }
+}
+
+/* Responsive navigation */
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem var(--container-padding);
+}
+
+@media screen and (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+    }
+}
+
+/* Aspect ratio boxes for responsive media */
+.aspect-ratio-box {
+    position: relative;
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio */
+}
+
+.aspect-ratio-box>* {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

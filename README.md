@@ -2,7 +2,7 @@
 
 ## Overview
 
-This lecture covers the fundamental concepts of loops in C programming. It includes various types of loops, their structures, and practical examples to help students understand how to implement loops effectively in their programs.
+This project is a web application built with React that visualizes a C programming lecture on loops. It covers the fundamental concepts of loops in C programming, including various types of loops, their structures, and practical examples. The project uses Vite as a build tool and provides an interactive learning experience.
 
 ## Table of Contents
 
