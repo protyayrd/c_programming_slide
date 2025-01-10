@@ -99,7 +99,7 @@ const LoopFlow = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-900 p-8">
+        <div className="min-h-screen flex items-center justify-center p-8">
             <div className="w-full max-w-5xl bg-gray-800 rounded-3xl shadow-2xl overflow-hidden">
                 <div className="p-12">
                     {/* Stage Progression */}

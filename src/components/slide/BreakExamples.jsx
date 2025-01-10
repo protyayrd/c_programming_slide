@@ -2,7 +2,7 @@ import React from 'react';
 import { Code, Layers, Repeat, RefreshCw } from 'lucide-react';
 import LoopExampleTemplate from '../shared/LoopExampleTemplate';
 
-const SeriesPrintReverse = () => {
+const BreakExamples = () => {
     const loopTypes = {
         fordetail: {
             title: 'Elements',
@@ -24,7 +24,7 @@ const SeriesPrintReverse = () => {
             icon: Repeat,
             code: `#include <stdio.h>
 int main() {
-    for (int i = 100; i >= 0; i = i - 10) {
+    for (int i = 1; i <= 5; i++) {
         printf("%d ", i);
     }
     return 0;
@@ -36,10 +36,10 @@ int main() {
             icon: RefreshCw,
             code: `#include <stdio.h>
 int main() {
-    int i = 100;
-    while (i >= 0) {
+    int i = 1;
+    while (i <= 5) {
         printf("%d ", i);
-        i = i - 10;
+        i++;
     }
     return 0;
 }`,
@@ -50,11 +50,11 @@ int main() {
             icon: Code,
             code: `#include <stdio.h>
 int main() {
-    int i = 100;
+    int i = 1;
     do {
         printf("%d ", i);
-        i = i - 10;
-    } while (i >= 0);
+        i++;
+    } while (i <= 5);
     return 0;
 }`,
             color: 'bg-purple-500'
@@ -64,4 +64,4 @@ int main() {
     return <LoopExampleTemplate loopTypes={loopTypes} />;
 };
 
-export default SeriesPrintReverse;
+export default BreakExamples;

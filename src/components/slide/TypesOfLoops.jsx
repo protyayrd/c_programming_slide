@@ -170,7 +170,7 @@ const TypesOfLoops = () => {
                                     transition={{ duration: 0.5, delay: 0.6 }}
                                     className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-8 shadow-xl"
                                 >
-                                    <pre className="text-xl text-green-300 overflow-x-auto">
+                                    <pre className="text-3xl text-green-300 overflow-x-auto">
                                         <code>{slides[currentSlide].code}</code>
                                     </pre>
                                 </motion.div>

@@ -26,6 +26,10 @@ import SumOf_1Fraci2 from "./SumOf_1Fraci2.jsx";
 import ProductOf5Numbers from "./ProductOf5Numbers.jsx";
 import ControlFlowLoopDetails from "./ControlFlowLoopDetails.jsx";
 import PrintBondipathshala5Times from "./PrintBondipathshala5Times.jsx";
+import ContinueStatement from "./ContinueStatement.jsx";
+import BreakStatement from './BreakStatement';
+import BreakExamples from './BreakExamples';
+import ContinueExamples from './ContinueExamples';
 
 const commonStyles = {
   background: "bg-gray-900", // Main background
@@ -61,7 +65,7 @@ const slides = [
   //     "লুপ হল এক ধরনের প্রোগ্রামিং কাঠামো যা একই কোড ব্লকটিকে বারবার সম্পাদন করতে দেয়।",
   //     "এটি পুনরাবৃত্তিমূলক কাজ সম্পাদনের জন্য ব্যবহৃত হয়।",
   //     "__**^^লুপের মৌলিক বৈশিষ্ট্য^^:-**__",
-  //     "পুনরাবৃত্তিমূলক কাজ সম্পাদন।",
+  //     "পুনরাবৃত্তি��ূলক কাজ সম্পাদন।",
   //     "নির্দিষ্ট শর্ত পর্যন্ত চলে।",
   //     "কন্ট্রোল ভ্যারিয়েবল ব্যবহার করে লুপ পরিচালনা।",
   //   ],
@@ -78,7 +82,7 @@ const slides = [
   //     "Example: int i = 0;",
   //     "__**^^Condition^^:-**__",
   //     "--কন্ডিশন হল এক গুরুত্বপূর্ণ চেকপয়েন্ট যা সিদ্ধান্ত নেয় লুপ কি চলবে নাকি থেমে যাবে।--",
-  //     "--Initialization এ তৈরি করা Variable এর উপর এমন কিছু শর্ত দেওয়া যার মাধ্যমে True/False ফলাফল পাওয়া যায়।--",
+  //     "--Initialization এ তৈরি করা Variable এ�� ���পর এমন কিছু শর্ত দেওয়া যার মাধ্যমে True/False ফলাফল পাওয়া যায়।--",
   //     "--লুপের প্রতিটি Iteration এ Condition Check হবে।--",
   //     "--Condition সত্য(True) হলে লুপ চলবে এবং Condition মিথ্যা(False) হলে লুপ বন্ধ হয়ে যাবে।--",
   //     "Example: i < 10;",
@@ -95,7 +99,7 @@ const slides = [
   //     "--নির্দিষ্ট কাজ বা অপারেশন এখানে করা হয়।--",
   //     "Example: printf(\"%d \", i);",
   //     "__**^^Update^^:-**__",
-  //     "--লুপের প্রতিটি Iteration এ Variable এর মান পরিবর্তন করা। সাধারণত Variable এর মান বাড়ানো বা কমানো হয়।--",
+  //     "--লুপের প্রতিটি Iteration এ Variable এর মান পরিবর্তন করা। সাধারণত Variable এর মান বাড়��নো ���া কমানো হয়।--",
   //     "--লুপের অবস্থার ক্রমাগত পরিবর্তন নিশ্চিত করে--",
   //     "--লুপের সমাপ্তি বিন্দুর দিকে এগোয়--",
   //     "Example: i++; বা, i = i + 1; বা, i--; বা, i = i - 1;",
@@ -103,13 +107,7 @@ const slides = [
   //   gradient: "from-blue-500 to-blue-700",
   //   icon: Book,
   // },
-  {
-    title: "Marathon Race Animation",
-    indexTitle: "Marathon Race Animation",
-    component: MarathonRunnerAnimation,
-    icon: Terminal,
-    gradient: "from-blue-900 to-blue-800",
-  },
+
   {
     title: "১ থেকে ৫ পর্যন্ত সংখ্যা গুলো প্রিন্ট করার জন্য একটি C Program লিখ।",
     code: [
@@ -143,6 +141,13 @@ const slides = [
     icon: Code,
     gradient: "from-blue-900 to-blue-800",
   },
+  // {
+  //   title: "Marathon Race Animation",
+  //   indexTitle: "Marathon Race Animation",
+  //   component: MarathonRunnerAnimation,
+  //   icon: Terminal,
+  //   gradient: "from-blue-900 to-blue-800",
+  // },
   {
     indexTitle: "Loop Elements",
     component: LoopElements,
@@ -224,7 +229,7 @@ const slides = [
     gradient: "from-blue-900 to-blue-800",
   },
   {
-    title: "100, 90, 80, ..., 0 সিরিজটি প্রিন্ট করো।",
+    title: "100, 90, 80, ..., 0 সিরিজটি প্রিন্ট ��রো।",
     indexTitle: "100, 90, 80, ..., 0 সিরিজটি প্রিন্ট করো।",
     component: SeriesPrintReverse,
     icon: Terminal,
@@ -251,7 +256,7 @@ const slides = [
   },
   {
     title: "1 থেকে 5 পর্যন্ত সংখ্যা গুলোর গুনণফল নির্নয় করো।",
-    indexTitle: "1 থেকে 5 পর্যন্ত সংখ্যা গুলোর গুনণফল নির্নয় করো।",
+    indexTitle: "1 থেকে 5 পর্যন্ত সংখ্যা গুল����� গুনণফল নির্নয় করো।",
     component: ProductOf5Numbers,
     icon: Terminal,
     gradient: "from-blue-900 to-blue-800",
@@ -279,7 +284,7 @@ const slides = [
   },
   {
     title: "{1/1^2^} + {1/2^2^}  + {1/3^2^} + {1/4^2^} + {1/5^2^} ধারার যোগফল নির্নয় করো।",
-    indexTitle: "1/1^2 + 1/2^2 + 1/3^2 + 1/4^2 + 1/5^2 ধারার যোগফল নির্নয় করো।",
+    indexTitle: "1/1^2 + 1/2^2 + 1/3^2 + 1/4^2 + 1/5^2 ধারা��� য���গফল নির্নয় করো।",
     component: SumOf_1Fraci2,
     icon: Terminal,
     gradient: "from-blue-900 to-blue-800",
@@ -288,6 +293,26 @@ const slides = [
     indexTitle: 'IF Else in Loops',
     component: ControlFlowLoopDetails,
     gradient: "from-blue-900 to-blue-800",
+  },
+  {
+    id: 'continue-statement',
+    title: 'Continue Statement',
+    component: ContinueStatement,
+  },
+  {
+    id: 'continue-examples',
+    title: 'Continue Examples',
+    component: ContinueExamples,
+  },
+  {
+    id: 'break-statement',
+    title: 'Break Statement',
+    component: BreakStatement,
+  },
+  {
+    id: 'break-examples',
+    title: 'Break Examples',
+    component: BreakExamples,
   },
 ];
 

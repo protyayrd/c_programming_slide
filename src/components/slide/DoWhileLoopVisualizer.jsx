@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Icons
 const CodeIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 mr-4 text-gray-400">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 mr-2">
         <path d="M17 11.2L12 16l-5-4.8" />
         <path d="M17 6.2L12 11l-5-4.8" />
     </svg>
@@ -24,7 +25,7 @@ const RepeatIcon = () => (
 );
 
 const ArrowRightIcon = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 mr-4">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
         <line x1="5" y1="12" x2="19" y2="12"></line>
         <polyline points="12 5 19 12 12 19"></polyline>
     </svg>
@@ -41,44 +42,20 @@ const DoWhileLoopVisualizer = () => {
     const [hasInitialized, setHasInitialized] = useState(false);
 
     const code = [
-        {
-            line: 1,
-            text: `#include <stdio.h>`,
-        },
-        {
-            line: 2,
-            text: `int main() {`,
-        },
-        {
-            line: 3,
-            text: `    int i = ${start};`,
-        },
-        {
-            line: 4,
-            text: `    do {`,
-        },
-        {
-            line: 5,
-            text: `        printf("%d\\n", i);`
-        },
-        {
-            line: 6,
-            text: `        i++;`
-        },
+        { line: 1, text: `#include <stdio.h>` },
+        { line: 2, text: `int main() {` },
+        { line: 3, text: `    int i = ${start};` },
+        { line: 4, text: `    do {` },
+        { line: 5, text: `        printf("%d\\n", i);` },
+        { line: 6, text: `        i++;` },
         {
             line: 7,
             text: `    } while (`,
             condition: `i <= ${end}`,
-            closeBrace: `);`
+            closeBrace: `);`,
         },
-        {
-            line: 8,
-            text: `    return 0;`
-        },
-        {
-            line: 9,
-            text: `}`
-        },
+        { line: 8, text: `    return 0;` },
+        { line: 9, text: `}` },
     ];
 
     const steps = [
@@ -90,7 +67,7 @@ const DoWhileLoopVisualizer = () => {
                     setInstruction(`Initializing loop: counter starts at ${start}`);
                     setHasInitialized(true);
                 }
-            }
+            },
         },
         {
             line: 5,
@@ -120,7 +97,7 @@ const DoWhileLoopVisualizer = () => {
                 }
                 setInstruction(`Checking condition: Is ${variables.counter} ≤ ${end}?`);
                 return true;
-            }
+            },
         },
     ];
 
@@ -148,44 +125,67 @@ const DoWhileLoopVisualizer = () => {
         setHasInitialized(false);
     };
 
+    const getLineHighlightClass = (line, codeElement) => {
+        // Highlight initialization line when initialization step occurs
+        if (codeElement.line === 3 && currentStep === 0) {
+            return "bg-blue-900/50 text-blue-200";
+        }
+
+        const stepIndex = currentStep % steps.length;
+        switch (stepIndex) {
+            case 1: // Print
+                return line === 5 ? "bg-green-900/50 text-green-200" : "text-gray-300";
+            case 2: // Increment
+                return line === 6 ? "bg-purple-900/50 text-purple-200" : "text-gray-300";
+            case 3: // Condition check
+                return line === 7 ? "text-yellow-300 font-bold animate-pulse" : "text-gray-300";
+            default:
+                return "text-gray-300";
+        }
+    };
+
     return (
-        <div className="w-full max-w-5xl mx-auto bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl shadow-2xl text-white p-6">
-            <div className="grid md:grid-cols-2 gap-6">
+        <div className="w-full max-w-6xl mx-auto bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl shadow-2xl text-white p-8">
+            {/* Header */}
+            <motion.h1
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="text-4xl font-bold text-center mb-8 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
+            >
+                Do-While Loop Visualizer
+            </motion.h1>
+
+            {/* Code and Output Section */}
+            <div className="grid md:grid-cols-2 gap-8">
                 {/* Code Visualization */}
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
+                    className="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700"
                 >
-                    <h3 className="text-3xl font-semibold mb-4 text-blue-300">Code Visualization</h3>
-                    <div className="bg-slate-800 p-6 rounded-xl border-2 border-blue-500/30">
+                    <h3 className="text-2xl font-semibold mb-6 text-blue-400">Code Visualization</h3>
+                    <div className="space-y-4">
                         {code.map((line) => (
                             <div
                                 key={line.line}
-                                className={`flex items-center font-mono text-3xl mb-1 transition-all duration-300 ${
-                                    (currentStep === -1 && line.line === 2) || (line.line === 3 && !hasInitialized)
-                                        ? "text-green-300 font-bold scale-105"
-                                        : currentStep % steps.length === 1 && line.line === 5
-                                            ? "bg-blue-900/50 text-blue-200"
-                                            : currentStep % steps.length === 2 && line.line === 6
-                                                ? "bg-purple-900/50 text-purple-200"
-                                                : currentStep % steps.length === 3 && line.line === 7
-                                                    ? "text-yellow-300 font-bold animate-pulse"
-                                                    : "text-gray-300"
-                                }`}
+                                className={`flex items-center font-mono text-2xl transition-all duration-300 ${getLineHighlightClass(
+                                    line.line,
+                                    line
+                                )}`}
                             >
-                                <span className="mr-4 text-gray-500 text-lg">{line.line}.</span>
+                                <span className="mr-4 text-gray-500 text-xl">{line.line}.</span>
                                 <span>{line.text}</span>
                                 {line.condition && (
                                     <span
-                                        className={`ml-1 ${
-                                            currentStep % steps.length === 3
+                                        className={`ml-1 ${currentStep % steps.length === 3
                                                 ? "text-yellow-300 font-bold animate-pulse"
                                                 : "text-gray-300"
-                                        }`}
+                                            }`}
                                     >
-                    {line.condition}
-                  </span>
+                                        {line.condition}
+                                    </span>
                                 )}
                                 {line.closeBrace && (
                                     <span className="text-gray-300">{line.closeBrace}</span>
@@ -200,9 +200,10 @@ const DoWhileLoopVisualizer = () => {
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
+                    className="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700"
                 >
-                    <h3 className="text-3xl font-semibold mb-4 text-green-300">Output Stream</h3>
-                    <div className="bg-slate-800 p-6 rounded-xl border-2 border-green-500/30 min-h-[412px]">
+                    <h3 className="text-2xl font-semibold mb-6 text-green-400">Output Stream</h3>
+                    <div className="space-y-2">
                         <AnimatePresence>
                             {output.map((value, index) => (
                                 <motion.div
@@ -210,9 +211,9 @@ const DoWhileLoopVisualizer = () => {
                                     initial={{ opacity: 0, x: -20 }}
                                     animate={{ opacity: 1, x: 0 }}
                                     exit={{ opacity: 0, x: 20 }}
-                                    className="flex items-center text-green-300 text-3xl mb-2"
+                                    className="flex items-center text-green-400 text-2xl"
                                 >
-                                    <span className="mr-4 text-gray-500 text-lg">{index + 1}.</span>
+                                    <span className="mr-4 text-gray-500 text-xl">{index + 1}.</span>
                                     <span>{value}</span>
                                 </motion.div>
                             ))}
@@ -222,30 +223,20 @@ const DoWhileLoopVisualizer = () => {
             </div>
 
             {/* Variables and Instruction Section */}
-            <div className="mt-6 grid md:grid-cols-2 gap-6">
+            <div className="mt-8 grid md:grid-cols-2 gap-8">
                 {/* Current Variables */}
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
+                    className="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700"
                 >
-                    <h3 className="text-3xl font-semibold mb-4 text-purple-300">Current Variables</h3>
-                    <div className="bg-slate-800 p-6 rounded-xl border-2 border-purple-500/30">
-                        <motion.div
-                            key={variables.counter}
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            transition={{ type: "spring", stiffness: 300 }}
-                            className="grid grid-cols-2 gap-4"
-                        >
-                            <div className="flex items-center">
-                                <CodeIcon />
-                                <span className="text-2xl font-medium">Counter</span>
-                            </div>
-                            <div className="bg-slate-700 rounded-lg p-3 text-center">
-                                <span className="text-2xl font-mono text-green-300">{variables.counter}</span>
-                            </div>
-                        </motion.div>
+                    <h3 className="text-2xl font-semibold mb-6 text-purple-400">Current Variables</h3>
+                    <div className="flex items-center gap-4">
+                        <CodeIcon />
+                        <div className="bg-gray-700 p-4 rounded-lg">
+                            <span className="text-xl font-mono text-purple-400">i = {variables.counter}</span>
+                        </div>
                     </div>
                 </motion.div>
 
@@ -254,18 +245,12 @@ const DoWhileLoopVisualizer = () => {
                     initial={{ opacity: 0, y: 50 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 }}
+                    className="bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-700"
                 >
-                    <h3 className="text-3xl font-semibold mb-4 text-yellow-300">Current Instruction</h3>
-                    <div className="bg-slate-800 p-6 rounded-xl border-2 border-yellow-500/30">
-                        <motion.div
-                            key={instruction}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            className="flex items-center text-yellow-300 text-xl"
-                        >
-                            <ArrowRightIcon />
-                            <span>{instruction}</span>
-                        </motion.div>
+                    <h3 className="text-2xl font-semibold mb-6 text-yellow-400">Current Instruction</h3>
+                    <div className="flex items-center gap-4">
+                        <ArrowRightIcon />
+                        <span className="text-lg text-yellow-400">{instruction}</span>
                     </div>
                 </motion.div>
             </div>
@@ -275,25 +260,25 @@ const DoWhileLoopVisualizer = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="mt-6 flex flex-col md:flex-row items-center justify-between gap-6"
+                className="mt-8 flex flex-col md:flex-row items-center justify-between gap-6"
             >
                 <div className="flex items-center gap-6">
-                    <label className="flex items-center gap-3 text-xl">
+                    <label className="flex items-center gap-3 text-lg">
                         Start:
                         <input
                             type="number"
                             value={start}
                             onChange={(e) => setStart(Number(e.target.value))}
-                            className="bg-slate-800 text-white px-4 py-3 rounded-lg w-32 text-xl border border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="bg-gray-700 text-white px-4 py-2 rounded-lg w-24 text-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </label>
-                    <label className="flex items-center gap-3 text-xl">
+                    <label className="flex items-center gap-3 text-lg">
                         End:
                         <input
                             type="number"
                             value={end}
                             onChange={(e) => setEnd(Number(e.target.value))}
-                            className="bg-slate-800 text-white px-4 py-3 rounded-lg w-32 text-xl border border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="bg-gray-700 text-white px-4 py-2 rounded-lg w-24 text-lg border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </label>
                 </div>
@@ -301,18 +286,34 @@ const DoWhileLoopVisualizer = () => {
                     <button
                         onClick={runStep}
                         disabled={loopCompleted}
-                        className="flex items-center gap-3 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg text-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="flex items-center gap-3 px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                         <PlayIcon /> Run Step
                     </button>
                     <button
                         onClick={resetLoop}
-                        className="flex items-center gap-3 px-6 py-3 bg-blue-800 hover:bg-blue-700 text-white rounded-lg text-xl transition-all duration-300"
+                        className="flex items-center gap-3 px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-lg transition-all duration-300"
                     >
                         <RepeatIcon /> Reset
                     </button>
                 </div>
             </motion.div>
+
+            {/* Progress Bar */}
+            <div className="mt-8">
+                <div className="w-full bg-gray-700 rounded-full h-2.5">
+                    <motion.div
+                        className="bg-green-500 h-2.5 rounded-full"
+                        initial={{ width: 0 }}
+                        animate={{
+                            width: loopCompleted
+                                ? "100%"
+                                : `${((currentStep + 1) / (steps.length * (end - start + 1))) * 100}%`,
+                        }}
+                        transition={{ duration: 0.5 }}
+                    />
+                </div>
+            </div>
         </div>
     );
 };

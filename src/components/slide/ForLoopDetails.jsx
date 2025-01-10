@@ -45,7 +45,7 @@ const ForLoopDetails = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center p-4">
+        <div className="min-h-screen-900 flex flex-col items-center justify-center p-4">
             <div className="bg-gray-800 shadow-2xl rounded-2xl p-8 max-w-4xl w-full overflow-hidden">
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}

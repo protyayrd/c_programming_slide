@@ -26,26 +26,6 @@ const ControlFlowLoopDetails = () => {
             description: "If-Else in For Loop",
             code: "for (initialization; condition; update) {\n    if (condition) {\n        // Code to execute if condition is true\n    } else {\n        // Code to execute if condition is false\n    }\n}",
             explanation: "If-else in loop:\n- Provides two paths each iteration\n- Executes one block per iteration\n- Handles binary conditions in loop"
-        },
-        {
-            description: "If-Else Ladder Structure",
-            code: "if (condition1) {\n    // Code to execute if condition1 is true\n} else if (condition2) {\n    // Code to execute if condition2 is true\n} else if (condition3) {\n    // Code to execute if condition3 is true\n} else {\n    // Default code\n}",
-            explanation: "If-else ladder allows multiple condition checks:\n- Checks conditions sequentially\n- Executes first matching condition block\n- Provides default fallback option"
-        },
-        {
-            description: "Continue Statement Structure",
-            code: "for (initialization; condition; update) {\n    if (condition) {\n        continue;  // Skip current iteration\n    }\n    // This code is skipped when continue executes\n}",
-            explanation: "Continue statement:\n- Skips remaining code in current iteration\n- Moves to next loop iteration immediately\n- Useful for filtering or selective processing"
-        },
-        {
-            description: "Continue in For Loop",
-            code: "for (initialization; condition; update) {\n    if (condition) {\n        continue;  // Skip current iteration\n    }\n    // This code is skipped when continue executes\n}",
-            explanation: "Continue in practice:\n- Skips specific iterations based on condition\n- Maintains loop flow\n- Useful for filtering values"
-        },
-        {
-            description: "Break Statement Structure",
-            code: "for (initialization; condition; update) {\n    if (condition) {\n        break;  // Exit loop immediately\n    }\n    // Code here won't run after break\n}",
-            explanation: "Break statement:\n- Immediately exits the loop\n- Skips all remaining iterations\n- Used for early termination"
         }
     ];
 
@@ -65,22 +45,6 @@ const ControlFlowLoopDetails = () => {
         {
             description: "If-Else in Loop Example",
             code: "#include <stdio.h>\n\nint main() {\n    int i;\n    \n    for (i = 1; i <= 10; i++) {\n        if (i % 2 == 0) {\n            printf(\"%d is even\\n\", i);\n        } else {\n            printf(\"%d is odd\\n\", i);\n        }\n    }\n    \n    return 0;\n}"
-        },
-        {
-            description: "If-Else Ladder Example",
-            code: "#include <stdio.h>\n\nint main() {\n    int score = 75;\n    \n    if (score >= 90) {\n        printf(\"A Grade\\n\");\n    } else if (score >= 80) {\n        printf(\"B Grade\\n\");\n    } else if (score >= 70) {\n        printf(\"C Grade\\n\");\n    } else {\n        printf(\"Fail\\n\");\n    }\n    \n    return 0;\n}"
-        },
-        {
-            description: "If-Else Ladder in Loop Example",
-            code: "#include <stdio.h>\n\nint main() {\n    int score;\n    \n    for (score = 60; score <= 100; score += 10) {\n        if (score >= 90) {\n            printf(\"%d: A Grade\\n\", score);\n        } else if (score >= 80) {\n            printf(\"%d: B Grade\\n\", score);\n        } else if (score >= 70) {\n            printf(\"%d: C Grade\\n\", score);\n        } else {\n            printf(\"%d: Fail\\n\", score);\n        }\n    }\n    \n    return 0;\n}"
-        },
-        {
-            description: "Continue Statement Example",
-            code: "#include <stdio.h>\n\nint main() {\n    int i;\n    \n    for (i = 1; i <= 5; i++) {\n        if (i == 5) {\n            continue;  // Skip printing 5\n        }\n        printf(\"%d\\n\", i);\n    }\n    \n    return 0;\n}"
-        },
-        {
-            description: "Break Statement Example",
-            code: "#include <stdio.h>\n\nint main() {\n    int i;\n    \n    for (i = 1; i <= 10; i++) {\n        if (i == 6) {\n            break;  // Stop at 6\n        }\n        printf(\"%d\\n\", i);\n    }\n    \n    return 0;\n}"
         }
     ];
 
